@@ -73,7 +73,6 @@ if(!empty($events)) {
     $results['empty'] = '本日の予定は何もありません';
 }
 
-//var_dump($results[0]['startTime']);
 
 
 //一旦LINEは置いておく
