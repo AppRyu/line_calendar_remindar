@@ -99,11 +99,23 @@ $text = [
   ]
 ];
 
+$array = getLineTemplate();
+var_dump($array);
+
+$jsonUrl = 'template.json';
+$json = file_get_contents($jsonUrl);
+$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+$obj = json_decode($json, true);
+var_dump($obj);
+
+
 // ボディを設定
 $body = json_encode([
     'to'        => $LINE_USER_ID,
-    'messages'  => $text
+    'messages'  => [$array]
 ]);
+
+// var_dump($body);
 
 // CURLオプションを設定
 $options = [
@@ -116,5 +128,6 @@ $options = [
 
 $curl = curl_init();
 curl_setopt_array($curl, $options);
-curl_exec($curl);
+$error = curl_exec($curl);
+echo ($error);
 curl_close($curl);
