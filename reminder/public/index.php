@@ -70,10 +70,8 @@ if(!empty($events)) {
     $results['empty'] = '本日の予定は何もありません';
 }
 
+var_dump($results);
 
-
-//一旦LINEは置いておく
-//===========================================================
 
 // LINE Messaging API プッシュメッセージを送る
 $LINE_PUSH_URL = "https://api.line.me/v2/bot/message/push";
@@ -89,23 +87,13 @@ $header = [
 ];
 
 // 送信メッセージを設定
-$text = [
-  [
-    'type' => 'text',
-    'text' => '動作確認'
-  ]
-];
-
-$array = getLineTemplate();
-var_dump($array);
+$sendMessage = getLineTemplate($results);
 
 // ボディを設定
 $body = json_encode([
     'to'        => $LINE_USER_ID,
-    'messages'  => [$array]
+    'messages'  => [$sendMessage]
 ]);
-
-// var_dump($body);
 
 // CURLオプションを設定
 $options = [

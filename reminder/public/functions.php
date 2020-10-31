@@ -20,7 +20,7 @@ function getWeek() {
     return $weekday[$today];
 }
 
-function getLineTemplate()
+function getLineTemplate($results)
 {
     $array = [
         'type'      => 'flex',
@@ -74,121 +74,100 @@ function getLineTemplate()
             'body'  => [
                 'type'      => 'box',
                 'layout'    => 'vertical',
-                'contents'  => [ 
+                'contents'  =>  getPlan($results)
+            ]
+            
+        ]
+    ];
+    return $array;
+}
+
+function getLineTemplateBody($start, $end, $summary) {
+    $array = 
+    [
+        'type' => 'box',
+        'layout' => 'vertical',
+        'contents' => [
+            [
+                'type' => 'box',
+                'layout' => 'horizontal',
+                'contents' => [
+                    [
+                        'type' => 'text',
+                        'text' => $start,
+                        'size' => 'sm'
+                    ],
                     [
                         'type' => 'box',
                         'layout' => 'vertical',
                         'contents' => [
                             [
-                                'type' => 'box',
-                                'layout' => 'horizontal',
-                                'contents' => [
-                                    [
-                                        'type' => 'text',
-                                        'text' => '20:30',
-                                        'size' => 'sm'
-                                    ],
-                                    [
-                                        'type' => 'box',
-                                        'layout' => 'vertical',
-                                        'contents' => [
-                                            [
-                                                'type' => 'filler'
-                                            ],
-                                            [
-                                                'type' => 'box',
-                                                'layout' => 'vertical',
-                                                'contents' => [],
-                                                'width' => '12px',
-                                                'height' => '12px',
-                                                'borderWidth' => '2px',
-                                                'borderColor' => '#EF454D',
-                                                'cornerRadius' => '30px'
-                                            ],
-                                            [
-                                                'type' => 'filler'
-                                            ]
-                                        ],
-                                        'flex' => 4
-                                    ]
-                                ],
-                                'spacing' => 'lg',
-                                'margin' => 'xl',
-                                'cornerRadius' => '30px'
+                                'type' => 'filler'
                             ],
                             [
                                 'type' => 'box',
-                                'layout' => 'horizontal',
-                                'contents' => [
-                                    [
-                                        'type' => 'box',
-                                        'layout' => 'vertical',
-                                        'contents' => [],
-                                        'margin' => '67px',
-                                        'width' => '2px',
-                                        'backgroundColor' => '#B7B7B7'
-                                    ],
-                                    [
-                                        'type' => 'box',
-                                        'layout' => 'vertical',
-                                        'contents' => [
-                                            [
-                                                'type' => 'text',
-                                                'text' => 'カフェで勉強',
-                                                'size' => 'sm',
-                                                'wrap' => true,
-                                                'align' => 'center'
-                                            ]
-                                        ],
-                                        'alignItems' => 'center',
-                                        'justifyContent' => 'center'    
-                                    ]
-                                ],
-                                'spacing' => 'lg',
-                                'height' => '50px'   
+                                'layout' => 'vertical',
+                                'contents' => [],
+                                'width' => '12px',
+                                'height' => '12px',
+                                'borderWidth' => '2px',
+                                'borderColor' => '#EF454D',
+                                'cornerRadius' => '30px'
                             ],
                             [
-                                'type' => 'box',
-                                'layout' => 'horizontal',
-                                'contents' => [
-                                    [
-                                        'type' => 'box',
-                                        'layout' => 'horizontal',
-                                        'contents' => [
-                                            [
-                                                'type' => 'text',
-                                                'text' => '20:34',
-                                                'size' => 'sm'
-                                            ]
-                                        ]
-                                    ],
-                                    [
-                                        'type' => 'box',
-                                        'layout' => 'vertical',
-                                        'contents' => [
-                                            [
-                                                'type' => 'filler'
-                                            ],
-                                            [
-                                                'type' => 'box',
-                                                'layout' => 'vertical',
-                                                'contents' => [],
-                                                'width' => '12px',
-                                                'height' => '12px',
-                                                'flex' => 4,
-                                                'cornerRadius' => '30px',
-                                                'borderWidth' => '2px',
-                                                'borderColor' => '#6486E3'
-                                            ],
-                                            [
-                                                'type' => 'filler'
-                                            ]
-                                        ],
-                                        'flex' => 4
-                                    ]
-                                ],
-                                'spacing' => 'lg',
-                                'cornerRadius' => '30px'
+                                'type' => 'filler'
+                            ]
+                        ],
+                        'flex' => 4
+                    ]
+                ],
+                'spacing' => 'lg',
+                'margin' => 'xl',
+                'cornerRadius' => '30px'
+            ],
+            [
+                'type' => 'box',
+                'layout' => 'horizontal',
+                'contents' => [
+                    [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'contents' => [],
+                        'margin' => '67px',
+                        'width' => '2px',
+                        'backgroundColor' => '#B7B7B7'
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'contents' => [
+                            [
+                                'type' => 'text',
+                                'text' => $summary,
+                                'size' => 'sm',
+                                'wrap' => true,
+                                'align' => 'center'
+                            ]
+                        ],
+                        'alignItems' => 'center',
+                        'justifyContent' => 'center'    
+                    ]
+                ],
+                'spacing' => 'lg',
+                'height' => '50px'   
+            ],
+            [
+                'type' => 'box',
+                'layout' => 'horizontal',
+                'contents' => [
+                    [
+                        'type' => 'box',
+                        'layout' => 'horizontal',
+                        'contents' => [
+                            [
+                                'type' => 'text',
+                                'text' => $end,
+                                'size' => 'sm'
                             ]
                         ]
                     ],
@@ -197,124 +176,42 @@ function getLineTemplate()
                         'layout' => 'vertical',
                         'contents' => [
                             [
-                                'type' => 'box',
-                                'layout' => 'horizontal',
-                                'contents' => [
-                                    [
-                                        'type' => 'text',
-                                        'text' => '20:30',
-                                        'size' => 'sm'
-                                    ],
-                                    [
-                                        'type' => 'box',
-                                        'layout' => 'vertical',
-                                        'contents' => [
-                                            [
-                                                'type' => 'filler'
-                                            ],
-                                            [
-                                                'type' => 'box',
-                                                'layout' => 'vertical',
-                                                'contents' => [],
-                                                'width' => '12px',
-                                                'height' => '12px',
-                                                'borderWidth' => '2px',
-                                                'borderColor' => '#EF454D',
-                                                'cornerRadius' => '30px'
-                                            ],
-                                            [
-                                                'type' => 'filler'
-                                            ]
-                                        ],
-                                        'flex' => 4
-                                    ]
-                                ],
-                                'spacing' => 'lg',
-                                'margin' => 'xl',
-                                'cornerRadius' => '30px'
+                                'type' => 'filler'
                             ],
                             [
                                 'type' => 'box',
-                                'layout' => 'horizontal',
-                                'contents' => [
-                                    [
-                                        'type' => 'box',
-                                        'layout' => 'vertical',
-                                        'contents' => [],
-                                        'margin' => '67px',
-                                        'width' => '2px',
-                                        'backgroundColor' => '#B7B7B7'
-                                    ],
-                                    [
-                                        'type' => 'box',
-                                        'layout' => 'vertical',
-                                        'contents' => [
-                                            [
-                                                'type' => 'text',
-                                                'text' => 'カフェで勉強',
-                                                'size' => 'sm',
-                                                'wrap' => true,
-                                                'align' => 'center'
-                                            ]
-                                        ],
-                                        'alignItems' => 'center',
-                                        'justifyContent' => 'center'    
-                                    ]
-                                ],
-                                'spacing' => 'lg',
-                                'height' => '50px'   
+                                'layout' => 'vertical',
+                                'contents' => [],
+                                'width' => '12px',
+                                'height' => '12px',
+                                'flex' => 4,
+                                'cornerRadius' => '30px',
+                                'borderWidth' => '2px',
+                                'borderColor' => '#6486E3'
                             ],
                             [
-                                'type' => 'box',
-                                'layout' => 'horizontal',
-                                'contents' => [
-                                    [
-                                        'type' => 'box',
-                                        'layout' => 'horizontal',
-                                        'contents' => [
-                                            [
-                                                'type' => 'text',
-                                                'text' => '20:34',
-                                                'size' => 'sm'
-                                            ]
-                                        ]
-                                    ],
-                                    [
-                                        'type' => 'box',
-                                        'layout' => 'vertical',
-                                        'contents' => [
-                                            [
-                                                'type' => 'filler'
-                                            ],
-                                            [
-                                                'type' => 'box',
-                                                'layout' => 'vertical',
-                                                'contents' => [],
-                                                'width' => '12px',
-                                                'height' => '12px',
-                                                'flex' => 4,
-                                                'cornerRadius' => '30px',
-                                                'borderWidth' => '2px',
-                                                'borderColor' => '#6486E3'
-                                            ],
-                                            [
-                                                'type' => 'filler'
-                                            ]
-                                        ],
-                                        'flex' => 4
-                                    ]
-                                ],
-                                'spacing' => 'lg',
-                                'cornerRadius' => '30px'
+                                'type' => 'filler'
                             ]
-                        ]
+                        ],
+                        'flex' => 4
                     ]
-    
-                ] 
-                    
+                ],
+                'spacing' => 'lg',
+                'cornerRadius' => '30px'
             ]
-            
         ]
     ];
     return $array;
+}
+
+function getPlan($samplePlan) {
+    // 本日の予定を格納
+    $plans = [];
+
+    for($i = 0; $i < count($samplePlan); $i++) {
+        $plan = getLineTemplateBody($samplePlan[$i]['startTime'], $samplePlan[$i]['endTime'], $samplePlan[$i]['summary']);
+        array_push($plans, $plan);
+    }
+
+    return $plans;
 }
