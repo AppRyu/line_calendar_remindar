@@ -57,131 +57,263 @@ function getLineTemplate()
                 ],
                 'backgroundColor' => '#0367D3'
             ],
-            'body'       => [
-                'type'      => 'box',
-                'layout'    => 'vertical',
-                'contents'  => [
+            'hero'  => [
+                'type' => 'box',
+                'layout' => 'vertical',
+                'contents' => [
                     [
-                        'type'    => 'text',
-                        'text'    => date('m月d日').'（'.getWeek().'）',
-                        'color'   => '#b7b7b7',
-                        'size'    => 'md',
-                        'align'   => 'start'
-                    ],
-                    [
-                        'type'     => 'box',
-                        'layout'   => 'horizontal',
-                        'contents' => [
-                            [
-                                'type'    => 'text',
-                                'text'    => '20:30',
-                                'size'    => 'sm'
-                            ],
-                            [
-                                'type'     => 'box',
-                                'layout'   => 'vertical',
-                                'contents' => [
-                                    [
-                                        'type'         => 'filler'
-                                    ],
-                                    [
-                                        'type'         => 'box',
-                                        'layout'       => 'vertical',
-                                        'cornerRadius' => '30px',
-                                        'contents'     => [],
-                                        'height'       => '12px',
-                                        'width'        => '12px',
-                                        'borderColor'  => '#EF454D',
-                                        'borderWidth'  => '2px'
-                                    ],
-                                    [
-                                        'type'         => 'filler'
-                                    ]
-                                ],
-                            'flex' => 4
-                            ]
-                        ],
-                        'spacing'      => 'lg',
-                        'cornerRadius' => '30px',
-                        'margin'       => 'xl',
-                    ],
-                    [
-                        'type'     => 'box',
-                        'layout'   => 'horizontal',
-                        'contents' => [
-                            [
-                                'type'            => 'box',
-                                'layout'          => 'vertical',
-                                'contents'        => [],
-                                'width'           => '2px',
-                                'backgroundColor' => '#B7B7B7',
-                                'margin'          => '67px'
-                            ],
-                            [
-                                'type'            => 'box',
-                                'layout'          => 'vertical',
-                                'contents'        => [
-                                    [
-                                        'type'  => 'text',
-                                        'text'  => 'カフェで勉強',
-                                        'align' => 'center',
-                                        'size'  => 'sm',
-                                        'wrap'  => true
-                                    ]
-                                ],
-                                'alignItems'     => 'center',
-                                'justifyContent' => 'center'
-                            ]
-                        ],
-                        'spacing' => 'lg',
-                        'height' => '50px'
-                    ],
-                    [
-                        'type'     => 'box',
-                        'layout'   => 'horizontal',
-                        'contents' => [
-                            [
-                                'type'     => 'box',
-                                'layout'   => 'horizontal',
-                                'contents' => [
-                                    [
-                                        'type'    => 'text',
-                                        'text'    => '20:34',
-                                        'gravity' => 'center',
-                                        'size'    => 'sm'
-                                    ]
-                                ],
-                                'flex' => 1
-                            ],
-                            [
-                                'type'     => 'box',
-                                'layout'   => 'vertical',
-                                'contents' => [
-                                    [
-                                        'type'         => 'filler'
-                                    ],
-                                    [
-                                        'type'         => 'box',
-                                        'layout'       => 'vertical',
-                                        'contents'     => [],
-                                        'cornerRadius' => '30px',
-                                        'width'        => '12px',
-                                        'height'       => '12px',
-                                        'borderWidth'  => '2px',
-                                        'borderColor'  => '#6486E3'
-                                    ],
-                                    [
-                                        'type'         => 'filler'
-                                    ]
-                                ],
-                                'flex' => 4
-                            ]
-                        ],
-                        'spacing'      => 'lg',
-                        'cornerRadius' => '30px'
+                        'type' => 'text',
+                        'text' => '10月31日（土）',
+                        'size' => 'md',
+                        'color' => '#b7b7b7',
+                        'margin' => 'xl',
+                        'offsetStart' => '20px'
                     ]
                 ]
+            ],  
+            'body'  => [
+                'type'      => 'box',
+                'layout'    => 'vertical',
+                'contents'  => [ 
+                    [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'contents' => [
+                            [
+                                'type' => 'box',
+                                'layout' => 'horizontal',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => '20:30',
+                                        'size' => 'sm'
+                                    ],
+                                    [
+                                        'type' => 'box',
+                                        'layout' => 'vertical',
+                                        'contents' => [
+                                            [
+                                                'type' => 'filler'
+                                            ],
+                                            [
+                                                'type' => 'box',
+                                                'layout' => 'vertical',
+                                                'contents' => [],
+                                                'width' => '12px',
+                                                'height' => '12px',
+                                                'borderWidth' => '2px',
+                                                'borderColor' => '#EF454D',
+                                                'cornerRadius' => '30px'
+                                            ],
+                                            [
+                                                'type' => 'filler'
+                                            ]
+                                        ],
+                                        'flex' => 4
+                                    ]
+                                ],
+                                'spacing' => 'lg',
+                                'margin' => 'xl',
+                                'cornerRadius' => '30px'
+                            ],
+                            [
+                                'type' => 'box',
+                                'layout' => 'horizontal',
+                                'contents' => [
+                                    [
+                                        'type' => 'box',
+                                        'layout' => 'vertical',
+                                        'contents' => [],
+                                        'margin' => '67px',
+                                        'width' => '2px',
+                                        'backgroundColor' => '#B7B7B7'
+                                    ],
+                                    [
+                                        'type' => 'box',
+                                        'layout' => 'vertical',
+                                        'contents' => [
+                                            [
+                                                'type' => 'text',
+                                                'text' => 'カフェで勉強',
+                                                'size' => 'sm',
+                                                'wrap' => true,
+                                                'align' => 'center'
+                                            ]
+                                        ],
+                                        'alignItems' => 'center',
+                                        'justifyContent' => 'center'    
+                                    ]
+                                ],
+                                'spacing' => 'lg',
+                                'height' => '50px'   
+                            ],
+                            [
+                                'type' => 'box',
+                                'layout' => 'horizontal',
+                                'contents' => [
+                                    [
+                                        'type' => 'box',
+                                        'layout' => 'horizontal',
+                                        'contents' => [
+                                            [
+                                                'type' => 'text',
+                                                'text' => '20:34',
+                                                'size' => 'sm'
+                                            ]
+                                        ]
+                                    ],
+                                    [
+                                        'type' => 'box',
+                                        'layout' => 'vertical',
+                                        'contents' => [
+                                            [
+                                                'type' => 'filler'
+                                            ],
+                                            [
+                                                'type' => 'box',
+                                                'layout' => 'vertical',
+                                                'contents' => [],
+                                                'width' => '12px',
+                                                'height' => '12px',
+                                                'flex' => 4,
+                                                'cornerRadius' => '30px',
+                                                'borderWidth' => '2px',
+                                                'borderColor' => '#6486E3'
+                                            ],
+                                            [
+                                                'type' => 'filler'
+                                            ]
+                                        ],
+                                        'flex' => 4
+                                    ]
+                                ],
+                                'spacing' => 'lg',
+                                'cornerRadius' => '30px'
+                            ]
+                        ]
+                    ],
+                    [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'contents' => [
+                            [
+                                'type' => 'box',
+                                'layout' => 'horizontal',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => '20:30',
+                                        'size' => 'sm'
+                                    ],
+                                    [
+                                        'type' => 'box',
+                                        'layout' => 'vertical',
+                                        'contents' => [
+                                            [
+                                                'type' => 'filler'
+                                            ],
+                                            [
+                                                'type' => 'box',
+                                                'layout' => 'vertical',
+                                                'contents' => [],
+                                                'width' => '12px',
+                                                'height' => '12px',
+                                                'borderWidth' => '2px',
+                                                'borderColor' => '#EF454D',
+                                                'cornerRadius' => '30px'
+                                            ],
+                                            [
+                                                'type' => 'filler'
+                                            ]
+                                        ],
+                                        'flex' => 4
+                                    ]
+                                ],
+                                'spacing' => 'lg',
+                                'margin' => 'xl',
+                                'cornerRadius' => '30px'
+                            ],
+                            [
+                                'type' => 'box',
+                                'layout' => 'horizontal',
+                                'contents' => [
+                                    [
+                                        'type' => 'box',
+                                        'layout' => 'vertical',
+                                        'contents' => [],
+                                        'margin' => '67px',
+                                        'width' => '2px',
+                                        'backgroundColor' => '#B7B7B7'
+                                    ],
+                                    [
+                                        'type' => 'box',
+                                        'layout' => 'vertical',
+                                        'contents' => [
+                                            [
+                                                'type' => 'text',
+                                                'text' => 'カフェで勉強',
+                                                'size' => 'sm',
+                                                'wrap' => true,
+                                                'align' => 'center'
+                                            ]
+                                        ],
+                                        'alignItems' => 'center',
+                                        'justifyContent' => 'center'    
+                                    ]
+                                ],
+                                'spacing' => 'lg',
+                                'height' => '50px'   
+                            ],
+                            [
+                                'type' => 'box',
+                                'layout' => 'horizontal',
+                                'contents' => [
+                                    [
+                                        'type' => 'box',
+                                        'layout' => 'horizontal',
+                                        'contents' => [
+                                            [
+                                                'type' => 'text',
+                                                'text' => '20:34',
+                                                'size' => 'sm'
+                                            ]
+                                        ]
+                                    ],
+                                    [
+                                        'type' => 'box',
+                                        'layout' => 'vertical',
+                                        'contents' => [
+                                            [
+                                                'type' => 'filler'
+                                            ],
+                                            [
+                                                'type' => 'box',
+                                                'layout' => 'vertical',
+                                                'contents' => [],
+                                                'width' => '12px',
+                                                'height' => '12px',
+                                                'flex' => 4,
+                                                'cornerRadius' => '30px',
+                                                'borderWidth' => '2px',
+                                                'borderColor' => '#6486E3'
+                                            ],
+                                            [
+                                                'type' => 'filler'
+                                            ]
+                                        ],
+                                        'flex' => 4
+                                    ]
+                                ],
+                                'spacing' => 'lg',
+                                'cornerRadius' => '30px'
+                            ]
+                        ]
+                    ]
+    
+                ] 
+                    
             ]
+            
         ]
     ];
     return $array;
