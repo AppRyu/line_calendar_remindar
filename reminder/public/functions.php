@@ -1,5 +1,8 @@
 <?php
 
+// 日本のタイムゾーンを設定
+date_default_timezone_set('Asia/Tokyo');
+
 // クライアントを取得
 function getClient() {
     $client = new Google_Client();
@@ -11,11 +14,17 @@ function getClient() {
     return $client;
 }
 
+function getWeek() {
+    $today = date('w');
+    $weekday = ['日','月','火','水','木','金','土'];
+    return $weekday[$today];
+}
+
 function getLineTemplate()
 {
     $array = [
         'type'      => 'flex',
-        'altText'   => 'This is a Flex Message',
+        'altText'   => 'Today\'s Schedule',
         'contents'  => [
             'type'     => 'bubble',
             'size'     => 'mega',
@@ -29,7 +38,7 @@ function getLineTemplate()
                         'contents' => [
                             [
                                 'type'        => 'text',
-                                'text'        => 'Todays',
+                                'text'        => 'Today\'s',
                                 'color'       => '#ffffff66',
                                 'size'        => 'sm',
                             ],
@@ -54,7 +63,7 @@ function getLineTemplate()
                 'contents'  => [
                     [
                         'type'    => 'text',
-                        'text'    => '10月31日（土）',
+                        'text'    => date('m月d日').'（'.getWeek().'）',
                         'color'   => '#b7b7b7',
                         'size'    => 'md',
                         'align'   => 'start'

@@ -10,9 +10,6 @@ $dotenv->load();
 //   throw new Exception('This application must be run on the command line.');
 // }
 
-// 日本のタイムゾーンを設定
-date_default_timezone_set('Asia/Tokyo');
-
 // 本日の日付を取得
 $today = date('Y-m-d');
 
@@ -101,13 +98,6 @@ $text = [
 
 $array = getLineTemplate();
 var_dump($array);
-
-$jsonUrl = 'template.json';
-$json = file_get_contents($jsonUrl);
-$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-$obj = json_decode($json, true);
-var_dump($obj);
-
 
 // ボディを設定
 $body = json_encode([
