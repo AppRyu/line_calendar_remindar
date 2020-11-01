@@ -21,9 +21,7 @@ function getWeek() {
     return $weekday[$today];
 }
 
-
-function getLineTemplate($results)
-{
+function getLineTemplate($results) {
     $array = [
         'type'      => 'flex',
         'altText'   => 'Today\'s Schedule',
@@ -202,6 +200,75 @@ function getLineTemplateBody($start, $end, $summary) {
                 'spacing' => 'lg',
                 'cornerRadius' => '30px'
             ]
+        ]
+    ];
+    return $array;
+}
+
+// 予定がない時のLINEテンプレート
+function caseOfFree() {
+    $array = [
+        'type'      => 'flex',
+        'altText'   => 'Today\'s Schedule',
+        'contents'  => [
+            'type'     => 'bubble',
+            'size'     => 'mega',
+            'header'   => [
+                'type'          => 'box',
+                'layout'        => 'vertical',
+                'contents'      => [
+                    [
+                        'type'     => 'box',
+                        'layout'   => 'baseline',
+                        'contents' => [
+                            [
+                                'type'        => 'text',
+                                'text'        => 'Today\'s',
+                                'color'       => '#ffffff66',
+                                'size'        => 'sm',
+                            ],
+                            [
+                                'type'        => 'text',
+                                'text'        => 'Schedule',
+                                'color'       => '#ffffff',
+                                'size'        => 'xl',
+                                'flex'        => 4,
+                                'weight'      => 'bold',
+                                'align'       => 'start',
+                                'offsetStart' => '25px'
+                            ]
+                        ]
+                    ]
+                ],
+                'backgroundColor' => '#0367D3'
+            ],
+            'hero'  => [
+                'type' => 'box',
+                'layout' => 'vertical',
+                'contents' => [
+                    [
+                        'type' => 'text',
+                        'text' => date('m月d日').' ('.getWeek().')',
+                        'size' => 'md',
+                        'color' => '#b7b7b7',
+                        'margin' => 'xl',
+                        'offsetStart' => '20px'
+                    ]
+                ]
+            ],  
+            'body'  => [
+                'type'      => 'box',
+                'layout'    => 'vertical',
+                'contents'  =>  [
+                    [
+                        'type' => 'text',
+                        'text' => '本日の予定はありません',
+                        'size' => 'sm',
+                        'align' => 'center'
+                    ]
+                ]
+            ]
+            
         ]
     ];
     return $array;
