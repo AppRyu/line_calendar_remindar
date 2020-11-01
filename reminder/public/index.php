@@ -70,12 +70,10 @@ if(!empty($events)) {
     $results['empty'] = '本日の予定は何もありません';
 }
 
-var_dump($results);
-
-
 // LINE Messaging API プッシュメッセージを送る
 $LINE_PUSH_URL = "https://api.line.me/v2/bot/message/push";
 
+// LINEアクセストークン
 $LINE_ACCESS_TOKEN = $_ENV['LINE_ACCESS_TOKEN'];
 
 $LINE_USER_ID = $_ENV['LINE_USER_ID'];
@@ -107,5 +105,4 @@ $options = [
 $curl = curl_init();
 curl_setopt_array($curl, $options);
 $error = curl_exec($curl);
-echo ($error);
 curl_close($curl);

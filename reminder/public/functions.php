@@ -207,12 +207,12 @@ function getLineTemplateBody($start, $end, $summary) {
     return $array;
 }
 
-function getPlan($samplePlan) {
+function getPlan($schedule) {
     // 本日の予定を格納
     $plans = [];
 
-    for($i = 0; $i < count($samplePlan); $i++) {
-        $plan = getLineTemplateBody($samplePlan[$i]['startTime'], $samplePlan[$i]['endTime'], $samplePlan[$i]['summary']);
+    for($i = 0; $i < count($schedule); $i++) {
+        $plan = getLineTemplateBody($schedule[$i]['startTime'], $schedule[$i]['endTime'], $schedule[$i]['summary']);
         array_push($plans, $plan);
     }
 
