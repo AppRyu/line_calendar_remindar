@@ -14,11 +14,13 @@ function getClient() {
     return $client;
 }
 
+// 曜日を日本語1文字で取得
 function getWeek() {
     $today = date('w');
     $weekday = ['日','月','火','水','木','金','土'];
     return $weekday[$today];
 }
+
 
 function getLineTemplate($results)
 {
@@ -63,7 +65,7 @@ function getLineTemplate($results)
                 'contents' => [
                     [
                         'type' => 'text',
-                        'text' => '10月31日（土）',
+                        'text' => date('m月d日').' ('.getWeek().')',
                         'size' => 'md',
                         'color' => '#b7b7b7',
                         'margin' => 'xl',
@@ -95,7 +97,8 @@ function getLineTemplateBody($start, $end, $summary) {
                     [
                         'type' => 'text',
                         'text' => $start,
-                        'size' => 'sm'
+                        'size' => 'md',
+                        'weight' => 'bold'
                     ],
                     [
                         'type' => 'box',

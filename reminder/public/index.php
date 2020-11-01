@@ -6,9 +6,9 @@ require './functions.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();                                                                                                                                                                                                   
 
-// if (php_sapi_name() != 'cli') {
-//   throw new Exception('This application must be run on the command line.');
-// }
+if (php_sapi_name() != 'cli') {
+  throw new Exception('This application must be run on the command line.');
+}
 
 // 本日の日付を取得
 $today = date('Y-m-d');
@@ -49,17 +49,17 @@ if(!empty($events)) {
     foreach ($events as $event) {
       
       //予定の開始時刻を取得
-      $start = property_exists($event->start, 'dateTime')?$event->start->dateTime:$event->start->date;
+      $start = property_exists($event->start, 'dateTime')?$event->start->dateTime:null;
 
       //予定の終了時刻を取得
-      $end = property_exists($event->end, 'dateTime')?$event->end->dateTime:$event->end->date;
+      $end = property_exists($event->end, 'dateTime')?$event->end->dateTime:null;
 
       //予定のタイトルを取得
       $summary = $event->summary;
       
       $result = [
-        'startTime' => substr($start, 11, 8),
-        'endTime' => substr($end, 11, 8),
+        'startTime' => !is_null($start)?substr($start, 11, 5):'終日',
+        'endTime' => !is_null($end)?substr($end, 11, 5):'終日',
         'summary' => $summary,
       ];
 
