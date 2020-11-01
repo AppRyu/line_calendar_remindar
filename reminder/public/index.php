@@ -2,6 +2,8 @@
 
 require '../vendor/autoload.php';
 require './functions.php';
+require './templates.php';
+
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();                                                                                                                                                                                                   
